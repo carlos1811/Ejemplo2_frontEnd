@@ -1,0 +1,36 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Dispositivo</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Dispositivo</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/dispositivo/form']">
+        Crear Dispositivo
+      </button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Dispositivo</th>
+          <th>Activado</th>
+           <th>editar</th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let disp of dispositivo">
+          <td>{{ disp.id }}</td>
+          <td>{{ disp.dispositivo }}</td>
+          <td>{{ disp.activado }}</td>
+           <td>
+            <button type="button" name="editar" [routerLink]="['/dispositivo/form', disp.id]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(disp)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
